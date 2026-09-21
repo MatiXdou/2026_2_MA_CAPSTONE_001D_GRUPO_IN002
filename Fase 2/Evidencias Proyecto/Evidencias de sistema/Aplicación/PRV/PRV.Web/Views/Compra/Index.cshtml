@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<PRV.Web.Models.Producto>
+
+@{
     ViewData["Title"] = "Nueva compra";
 
     var idProductoSeleccionado =
@@ -40,20 +42,16 @@
                             Seleccione producto
                         </option>
 
-                        <option value="1"
-                                selected="@(idProductoSeleccionado == 1)">
-                            Arroz 1 Kg - $1.200
-                        </option>
-
-                        <option value="2"
-                                selected="@(idProductoSeleccionado == 2)">
-                            Aceite 1 Litro - $1.800
-                        </option>
-
-                        <option value="3"
-                                selected="@(idProductoSeleccionado == 3)">
-                            Azúcar 1 Kg - $950
-                        </option>
+                        @foreach (var producto in Model)
+                        {
+                            <option value="@producto.IdProducto"
+                                    data-precio-normal="@producto.PrecioVenta"
+                                    data-precio-mayorista="@producto.PrecioMayorista"
+                                    data-stock="@producto.Stock"
+                                    selected="@(producto.IdProducto == idProductoSeleccionado)">
+                                @producto.Nombre
+                            </option>
+                        }
 
                     </select>
 
@@ -80,7 +78,8 @@
                 <div class="col-md-3">
 
                     <button type="button"
-                            class="btn btn-primary w-100">
+                            class="btn btn-primary w-100"
+                            id="btnAgregar">
 
                         <i class="bi bi-plus-circle me-1"></i>
                         Agregar
@@ -121,7 +120,7 @@
 
                     </thead>
 
-                    <tbody>
+                    <tbody id="detalleCompra">
 
                         <tr>
                             <td colspan="5"
@@ -143,7 +142,7 @@
 
                 <h5>
                     Total:
-                    <strong>$0</strong>
+                    <strong id="totalCompra">$0</strong>
                 </h5>
 
             </div>
@@ -160,27 +159,14 @@
                 </a>
 
 
-                <form asp-controller="Venta"
-                      asp-action="Pagar"
-                      method="post">
+                <button type="button"
+                        class="btn btn-success"
+                        id="btnPagar">
 
-                   @*  <button type="submit"
-                            class="btn btn-success">
+                    <i class="bi bi-credit-card me-1"></i>
+                    Pagar
 
-                        <i class="bi bi-credit-card me-1"></i>
-                        Pagar
-
-                    </button> *@
-
-                    <button type="button"
-                            class="btn btn-success">
-
-                        <i class="bi bi-credit-card me-1"></i>
-                        Pagar
-
-                    </button>
-
-                </form>
+                </button>
 
             </div>
 
@@ -189,3 +175,12 @@
     </div>
 
 </div>
+
+
+@section Scripts {
+
+    <script src="~/js/Compra.js"
+            asp-append-version="true">
+    </script>
+
+}

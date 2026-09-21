@@ -1,19 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PRV.Web.Services;
 
 namespace PRV.Web.Controllers
 {
     public class HomeMayoristaController : Controller
     {
+        private readonly ProductoService _productoService;
+
+        public HomeMayoristaController(ProductoService productoService)
+        {
+            _productoService = productoService;
+        }
+
         public IActionResult Index()
         {
-            //var tipoCliente = HttpContext.Session.GetString("TipoCliente");
+            var idEmpresa = HttpContext.Session.GetString("IdEmpresa");
 
-            //if (tipoCliente != "Mayorista")
-            //{
-            //    return RedirectToAction("Index", "Inicio");
-            //}
+            if (string.IsNullOrEmpty(idEmpresa))
+            {
+                return RedirectToAction("Index", "Inicio");
+            }
 
-            return View();
+            var productos = _productoService.ListarPorEmpresa(
+                long.Parse(idEmpresa)
+            );
+
+            return View(productos);
         }
     }
 }

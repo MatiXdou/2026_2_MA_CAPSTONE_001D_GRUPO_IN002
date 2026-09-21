@@ -11,8 +11,7 @@ namespace PRV.Web.Repositories
 
         public EmpresaRepository(IConfiguration configuration)
         {
-            _connectionString =
-                configuration.GetConnectionString("PRV_BD")!;
+            _connectionString = configuration.GetConnectionString("PRV_BD")!;
         }
 
 

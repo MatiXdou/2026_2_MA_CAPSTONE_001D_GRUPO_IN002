@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<PRV.Web.Models.Producto>
+
+@{
     ViewData["Title"] = "Productos Mayorista";
 }
 
@@ -6,14 +8,17 @@
 
     <!-- ENCABEZADO -->
     <div class="mb-4">
+
         <h2>Productos Disponibles</h2>
 
         <p class="text-muted mb-3">
             Selecciona los productos que deseas comprar.
         </p>
 
+
         <!-- INFORMACIÓN MAYORISTA -->
-        <div class="alert alert-primary d-flex align-items-center" role="alert">
+        <div class="alert alert-primary d-flex align-items-center"
+             role="alert">
 
             <i class="bi bi-info-circle-fill me-2"></i>
 
@@ -23,159 +28,104 @@
             </div>
 
         </div>
+
     </div>
 
 
+    <div class="mb-4">
+        <div class="input-group" style="max-width: 500px;">
+
+            <span class="input-group-text">
+                🔍
+            </span>
+
+            <input type="text"
+                   class="form-control"
+                   id="txtBuscarProducto"
+                   placeholder="Buscar producto..." />
+
+        </div>
+    </div>
+
+
+    <!-- PRODUCTOS -->
     <div class="row g-4">
 
-        <!-- PRODUCTO 1 -->
-        <div class="col-md-4">
+        @foreach (var producto in Model)
+        {
+            <div class="col-md-4 producto-item">
 
-            <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm">
 
-                <div class="card-body">
+                    <div class="card-body">
 
-                    <h5 class="card-title">
-                        Arroz 1 Kg
-                    </h5>
-
-                    <p class="text-muted">
-                        Arroz grado 1.
-                    </p>
-
-                    <p class="mb-1">
-                        <strong>Precio normal:</strong>
-                        $1.500
-                    </p>
-
-                    <p class="mb-1 text-primary fs-5">
-                        <strong>Precio mayorista: $1.200</strong>
-                    </p>
-
-                    <p class="mt-3">
-                        <strong>Stock:</strong>
-                        50
-                    </p>
-
-                </div>
-
-                <div class="card-footer bg-white border-0">
-
-                    <a asp-controller="Compra"
-                       asp-action="Index"
-                       asp-route-idProducto="1"
-                       class="btn btn-primary w-100">
-
-                        <i class="bi bi-cart-plus me-1"></i>
-                        Comprar
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
+                        <h5 class="card-title">
+                            @producto.Nombre
+                        </h5>
 
 
-        <!-- PRODUCTO 2 -->
-        <div class="col-md-4">
+                        <p class="text-muted">
+                            @producto.Descripcion
+                        </p>
 
-            <div class="card h-100 shadow-sm">
 
-                <div class="card-body">
+                        <p class="mb-1">
 
-                    <h5 class="card-title">
-                        Aceite 1 Litro
-                    </h5>
+                            <strong>Precio normal:</strong>
 
-                    <p class="text-muted">
-                        Aceite vegetal.
-                    </p>
+                            $@producto.PrecioVenta.ToString("N0")
 
-                    <p class="mb-1">
-                        <strong>Precio normal:</strong>
-                        $2.200
-                    </p>
+                        </p>
 
-                    <p class="mb-1 text-primary fs-5">
-                        <strong>Precio mayorista: $1.800</strong>
-                    </p>
 
-                    <p class="mt-3">
-                        <strong>Stock:</strong>
-                        35
-                    </p>
+                        <p class="mb-1 text-primary fs-5">
 
-                </div>
+                            <strong>
+                                Precio mayorista:
+                                $@producto.PrecioMayorista.ToString("N0")
+                            </strong>
 
-                <div class="card-footer bg-white border-0">
+                        </p>
 
-                    <a asp-controller="Compra"
-                       asp-action="Index"
-                       asp-route-idProducto="1"
-                       class="btn btn-primary w-100">
 
-                        <i class="bi bi-cart-plus me-1"></i>
-                        Comprar
+                        <p class="mt-3">
 
-                    </a>
+                            <strong>Stock:</strong>
+                            @producto.Stock
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-footer bg-white border-0">
+
+                        <a asp-controller="Compra"
+                           asp-action="Index"
+                           asp-route-idProducto="@producto.IdProducto"
+                           class="btn btn-primary w-100">
+
+                            <i class="bi bi-cart-plus me-1"></i>
+
+                            Comprar
+
+                        </a>
+
+                    </div>
 
                 </div>
 
             </div>
-
-        </div>
-
-
-        <!-- PRODUCTO 3 -->
-        <div class="col-md-4">
-
-            <div class="card h-100 shadow-sm">
-
-                <div class="card-body">
-
-                    <h5 class="card-title">
-                        Azúcar 1 Kg
-                    </h5>
-
-                    <p class="text-muted">
-                        Azúcar granulada.
-                    </p>
-
-                    <p class="mb-1">
-                        <strong>Precio normal:</strong>
-                        $1.300
-                    </p>
-
-                    <p class="mb-1 text-primary fs-5">
-                        <strong>Precio mayorista: $950</strong>
-                    </p>
-
-                    <p class="mt-3">
-                        <strong>Stock:</strong>
-                        40
-                    </p>
-
-                </div>
-
-                <div class="card-footer bg-white border-0">
-                    <a asp-controller="Compra"
-                       asp-action="Index"
-                       asp-route-idProducto="1"
-                       class="btn btn-primary w-100">
-
-                        <i class="bi bi-cart-plus me-1"></i>
-                        Comprar
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
+        }
 
     </div>
 
 </div>
+
+@section Scripts {
+
+    <script src="~/js/HomeMayorista.js"
+            asp-append-version="true">
+    </script>
+
+}

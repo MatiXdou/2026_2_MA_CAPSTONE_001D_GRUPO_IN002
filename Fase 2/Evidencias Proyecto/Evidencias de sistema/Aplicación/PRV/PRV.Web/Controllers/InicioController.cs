@@ -17,8 +17,8 @@ namespace PRV.Web.Controllers
 
         public IActionResult Index()
         {
-            //filtra solo empresa activa
-            var empresas = _empresaService.Listar().Where(e => e.Estado).ToList();
+            //filtra solo empresa activas
+            var empresas = _empresaService.Listar().Where(e => e.Estado == true).ToList();
 
             // Lista todas las empresas
             //var empresas = _empresaService.Listar();
@@ -133,12 +133,13 @@ namespace PRV.Web.Controllers
 
         private void GuardarSesion(Usuario usuario)
         {
-            HttpContext.Session.SetString("Nombre",usuario.Nombre);
-            HttpContext.Session.SetString("Email",usuario.Email);
-            HttpContext.Session.SetString("TipoCliente",usuario.TipoCliente ?? "");
-            HttpContext.Session.SetString("IdEmpresa",usuario.IdEmpresa.ToString() ?? "");
-            HttpContext.Session.SetString("IdRol",usuario.IdRol?.ToString() ?? "");
+            HttpContext.Session.SetString("IdUsuario", usuario.IdUsuario.ToString());
 
+            HttpContext.Session.SetString("Nombre", usuario.Nombre);
+            HttpContext.Session.SetString("Email", usuario.Email);
+            HttpContext.Session.SetString("TipoCliente", usuario.TipoCliente ?? "");
+            HttpContext.Session.SetString("IdEmpresa", usuario.IdEmpresa.ToString() ?? "");
+            HttpContext.Session.SetString("IdRol", usuario.IdRol?.ToString() ?? "");
         }
 
 

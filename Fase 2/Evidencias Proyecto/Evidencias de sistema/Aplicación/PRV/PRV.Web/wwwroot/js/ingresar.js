@@ -129,8 +129,7 @@ document.getElementById("btnContinuar").addEventListener("click", function () {
     const valorEmail = document.getElementById("email").value;
     const valorIdEmpresa = document.getElementById("idEmpresa").value;
 
-    const quiereMayorista =
-        document.getElementById("chkMayorista").checked;
+    const quiereMayorista = document.getElementById("chkMayorista").checked;
 
     if (quiereMayorista) {
 
