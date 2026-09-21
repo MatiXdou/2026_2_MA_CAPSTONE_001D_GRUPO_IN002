@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Cambiar clave";
+}
+
+<div class="container-fluid">
+
+    <div class="mb-4">
+        <h2>Cambiar clave</h2>
+        <p class="text-muted">
+            Ingresa tu clave actual y define una nueva clave.
+        </p>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <form>
+
+                <div class="mb-3">
+                    <label for="claveActual" class="form-label">
+                        Clave actual
+                    </label>
+                    <input type="password"
+                           id="claveActual"
+                           class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="claveNueva" class="form-label">
+                        Clave nueva
+                    </label>
+                    <input type="password"
+                           id="claveNueva"
+                           class="form-control">
+                </div>
+
+                <div class="mb-4">
+                    <label for="confirmarClave" class="form-label">
+                        Confirmar clave nueva
+                    </label>
+                    <input type="password"
+                           id="confirmarClave"
+                           class="form-control">
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit"
+                            class="btn btn-primary">
+                        Cambiar clave
+                    </button>
+
+
+                    <button type="reset" class="btn btn-secondary">
+                        Limpiar
+                    </button>
+        @*             <a asp-controller="Home"
+                       asp-action="Index"
+                       class="btn btn-secondary">
+                        Cancelar
+                    </a> *@
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

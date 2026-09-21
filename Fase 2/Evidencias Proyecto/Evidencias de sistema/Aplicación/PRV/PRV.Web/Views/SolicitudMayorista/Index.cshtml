@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Solicitudes Mayoristas";
+}
+
+<div class="container-fluid">
+
+    <!-- ENCABEZADO -->
+    <div class="mb-4">
+        <h2>Solicitudes Mayoristas</h2>
+
+        <p class="text-muted">
+            Solicitudes pendientes para acceder como cliente mayorista.
+        </p>
+    </div>
+
+
+    <!-- TABLA -->
+    <div class="card shadow-sm">
+
+        <div class="card-body">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover align-middle">
+
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>RUT</th>
+                            <th>Teléfono</th>
+                            <th>Estado</th>
+                            <th class="text-end">Acción</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <!-- DATO DE PRUEBA -->
+                        <tr>
+                            <td>Juan Pérez</td>
+
+                            <td>juan@correo.cl</td>
+
+                            <td>12.345.678-9</td>
+
+                            <td>9 1234 5678</td>
+
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Solicitante
+                                </span>
+                            </td>
+
+                            <td class="text-end">
+
+                                <button type="button"
+                                        class="btn btn-success btn-sm">
+
+                                    <i class="bi bi-check-circle me-1"></i>
+                                    Aprobar
+
+                                </button>
+
+                            </td>
+                        </tr>
+
+
+                        <!-- DATO DE PRUEBA -->
+                        <tr>
+                            <td>María González</td>
+
+                            <td>maria@correo.cl</td>
+
+                            <td>15.555.555-5</td>
+
+                            <td>9 8765 4321</td>
+
+                            <td>
+                                <span class="badge bg-warning text-dark">
+                                    Solicitante
+                                </span>
+                            </td>
+
+                            <td class="text-end">
+
+                                <button type="button"
+                                        class="btn btn-success btn-sm">
+
+                                    <i class="bi bi-check-circle me-1"></i>
+                                    Aprobar
+
+                                </button>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

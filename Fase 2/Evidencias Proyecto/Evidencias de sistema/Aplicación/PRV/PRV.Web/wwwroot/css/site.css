@@ -1,0 +1,610 @@
+/* =========================================================
+   PRV - ESTILOS GENERALES
+========================================================= */
+
+html {
+    font-size: 14px;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #f4f6f9;
+    color: #1f2937;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+
+/* =========================================================
+   ESTRUCTURA PRINCIPAL
+========================================================= */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    min-height: 100vh;
+    background-color: #172033;
+    color: white;
+    z-index: 1000;
+    transition: transform 0.25s ease;
+}
+
+
+/* =========================================================
+   LOGO / MARCA
+========================================================= */
+
+.sidebar-brand {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    border-radius: 10px;
+    background-color: #0d6efd;
+    font-size: 20px;
+}
+
+.brand-title {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.brand-subtitle {
+    margin-top: 2px;
+    color: #9ca3af;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   MENÚ LATERAL
+========================================================= */
+
+.sidebar-menu {
+    padding: 20px 14px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 11px 14px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+    .menu-item i {
+        width: 28px;
+        flex-shrink: 0;
+        font-size: 18px;
+    }
+
+    .menu-item:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        color: white;
+    }
+
+    .menu-item.active {
+        background-color: #0d6efd;
+        color: white;
+    }
+
+.menu-divider {
+    margin: 18px 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-label {
+    padding: 5px 14px 10px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+========================================================= */
+
+.main-area {
+    width: calc(100% - 260px);
+    min-width: 0;
+    min-height: 100vh;
+    margin-left: 260px;
+    transition: margin-left 0.25s ease, width 0.25s ease;
+}
+
+
+/* =========================================================
+   TOPBAR
+========================================================= */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    background-color: white;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 1100;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 12px;
+}
+
+
+/* =========================================================
+   BOTÓN MENÚ
+========================================================= */
+
+.sidebar-toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    background-color: #f8f9fa;
+    font-size: 20px;
+}
+
+    .sidebar-toggle:hover {
+        background-color: #eef1f4;
+    }
+
+
+/* =========================================================
+   NOTIFICACIONES / USUARIO
+========================================================= */
+
+.topbar-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-avatar {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #e8f0fe;
+    color: #0d6efd;
+    font-weight: 700;
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-role {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.page-content {
+    min-height: calc(100vh - 72px);
+    padding: 32px;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.card {
+    overflow: hidden;
+    border: 1px solid #e7eaf0 !important;
+    border-radius: 12px !important;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+.card-footer {
+    border-color: #e7eaf0;
+}
+
+
+/* =========================================================
+   TABLAS
+========================================================= */
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+    .table thead th {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        background-color: #f8fafc;
+        border-bottom: 1px solid #e5e7eb;
+        color: #475569;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+    .table tbody td {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        border-color: #edf0f3;
+        vertical-align: middle;
+    }
+
+    .table tbody tr:hover {
+        background-color: #fafbfc;
+    }
+
+
+/* =========================================================
+   BOTONES
+========================================================= */
+
+.btn {
+    border-radius: 7px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    box-shadow: 0 2px 5px rgba(13, 110, 253, 0.15);
+}
+
+
+/* =========================================================
+   FORMULARIOS
+========================================================= */
+
+.form-control {
+    border-color: #dce1e7;
+    border-radius: 7px;
+}
+
+    .form-control:focus {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.20rem rgba(13, 110, 253, 0.10);
+    }
+
+.input-group-text {
+    border-color: #dce1e7;
+}
+
+
+/* =========================================================
+   PC
+   Al presionar ☰ se oculta el sidebar
+========================================================= */
+
+@media (min-width: 992px) {
+
+    body.sidebar-hidden .sidebar {
+        transform: translateX(-100%);
+    }
+
+    body.sidebar-hidden .main-area {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/* =========================================================
+   TABLET / CELULAR
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+    /*
+       El sidebar queda oculto inicialmente
+       y aparece debajo del topbar.
+    */
+
+    .sidebar {
+        top: 64px;
+        bottom: 0;
+        width: 260px;
+        min-height: calc(100vh - 64px);
+        transform: translateX(-100%);
+        box-shadow: 4px 0 18px rgba(0, 0, 0, 0.18);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+
+    /*
+       Mostrar sidebar
+    */
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    /*
+       El contenido ocupa todo el ancho
+    */
+
+    .main-area {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /*
+       Barra superior siempre visible.
+       El botón ☰ nunca queda tapado.
+    */
+
+    .topbar {
+        height: 64px;
+        padding: 0 16px;
+        z-index: 1100;
+    }
+
+    .page-content {
+        min-height: calc(100vh - 64px);
+        padding: 20px;
+    }
+
+    /*
+       Ocultamos texto del usuario
+       para ganar espacio.
+    */
+
+    .user-text {
+        display: none;
+    }
+
+    /*
+       IMPORTANTE:
+       Como el sidebar comienza debajo del topbar,
+       su cabecera PRV queda totalmente visible.
+    */
+
+    .sidebar-brand {
+        height: 82px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .sidebar {
+        width: 245px;
+        max-width: 80vw;
+    }
+
+    .topbar {
+        height: 64px;
+        padding: 0 12px;
+    }
+
+    .topbar-right {
+        gap: 8px;
+    }
+
+    .page-content {
+        min-height: calc(100vh - 64px);
+        padding: 16px;
+    }
+
+    .sidebar-toggle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .user-info {
+        gap: 6px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .card {
+        border-radius: 10px !important;
+    }
+
+    /*
+       En celular la tabla puede desplazarse
+       horizontalmente dentro de la tarjeta.
+    */
+
+    .table {
+        min-width: 750px;
+    }
+
+    /*
+       Encabezado Empresas / Nueva empresa
+    */
+
+    .page-content .d-flex.justify-content-between {
+        align-items: flex-start !important;
+        gap: 12px;
+    }
+
+    .page-content .btn-primary {
+        white-space: nowrap;
+    }
+}
+
+/* =========================================================
+   PANTALLA INICIAL - SELECCIONAR EMPRESA
+========================================================= */
+
+.acceso-inicio {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: #f4f6f9;
+}
+
+.acceso-card {
+    width: 100%;
+    max-width: 520px;
+    padding: 36px;
+    background-color: white;
+    border: 1px solid #e7eaf0;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.acceso-logo {
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    border-radius: 12px;
+    background-color: #0d6efd;
+    color: white;
+    font-size: 26px;
+}
+
+.acceso-titulo {
+    margin-bottom: 2px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.acceso-empresa {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #dce1e7;
+    border-radius: 9px;
+    background-color: white;
+    color: #1f2937;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+    .acceso-empresa:hover {
+        border-color: #0d6efd;
+        background-color: #f8fbff;
+        color: #0d6efd;
+    }
+
+    .acceso-empresa i {
+        font-size: 20px;
+    }
+
+
+/* =========================================================
+   LISTA DE EMPRESAS CON SCROLL
+========================================================= */
+
+.acceso-lista-empresas {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* =========================================================
+   ACCESO EMPRESA
+========================================================= */
+
+.acceso-empresa-admin {
+    position: fixed;
+    top: 24px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .acceso-empresa-admin:hover {
+        background-color: white;
+        color: #0d6efd;
+    }
+
+@media (max-width: 575.98px) {
+    .acceso-empresa-admin {
+        top: 12px;
+        right: 12px;
+        font-size: 14px;
+    }
+}

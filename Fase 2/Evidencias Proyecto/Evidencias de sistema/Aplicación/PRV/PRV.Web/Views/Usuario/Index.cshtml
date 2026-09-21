@@ -1,0 +1,199 @@
+﻿@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<div class="container-fluid">
+
+    <!-- Encabezado -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="mb-1">Usuarios</h2>
+            <p class="text-muted mb-0">
+                Administración de usuarios y accesos al PRV
+            </p>
+        </div>
+
+        <a href="#" class="btn btn-primary">
+            + Nuevo usuario
+        </a>
+    </div>
+
+
+    <!-- Contenedor principal -->
+    <div class="card shadow-sm">
+
+        <!-- Buscador -->
+        <div class="card-body border-bottom">
+            <div class="input-group" style="max-width: 500px;">
+                <span class="input-group-text">
+                    🔍
+                </span>
+
+                <input type="text"
+                       class="form-control"
+                       placeholder="Buscar usuario..." />
+            </div>
+        </div>
+
+
+        <!-- Tabla -->
+        <div class="table-responsive">
+
+            <table class="table table-hover align-middle mb-0">
+
+                <thead class="table-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Empresa</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Administrador PRV</td>
+                        <td>admin@prv.cl</td>
+                        <td>PRV</td>
+
+                        <td>
+                            <span class="badge bg-primary">
+                                SuperAdmin
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                Activo
+                            </span>
+                        </td>
+
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-primary"
+                                    title="Editar">
+                                ✏️
+                            </button>
+
+                            <button class="btn btn-sm btn-outline-danger"
+                                    title="Desactivar">
+                                🗑️
+                            </button>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>2</td>
+                        <td>Pedro González</td>
+                        <td>pedro@losandes.cl</td>
+                        <td>Los Andes</td>
+
+                        <td>
+                            <span class="badge bg-secondary">
+                                Administrador
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                Activo
+                            </span>
+                        </td>
+
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-primary"
+                                    title="Editar">
+                                ✏️
+                            </button>
+
+                            <button class="btn btn-sm btn-outline-danger"
+                                    title="Desactivar">
+                                🗑️
+                            </button>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>3</td>
+                        <td>Carolina Soto</td>
+                        <td>carolina@losandes.cl</td>
+                        <td>Los Andes</td>
+
+                        <td>
+                            <span class="badge bg-secondary">
+                                Vendedor
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="badge bg-success">
+                                Activo
+                            </span>
+                        </td>
+
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-primary"
+                                    title="Editar">
+                                ✏️
+                            </button>
+
+                            <button class="btn btn-sm btn-outline-danger"
+                                    title="Desactivar">
+                                🗑️
+                            </button>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>4</td>
+                        <td>Felipe Muñoz</td>
+                        <td>felipe@central.cl</td>
+                        <td>Central</td>
+
+                        <td>
+                            <span class="badge bg-secondary">
+                                Vendedor
+                            </span>
+                        </td>
+
+                        <td>
+                            <span class="badge bg-secondary">
+                                Inactivo
+                            </span>
+                        </td>
+
+                        <td class="text-end">
+                            <button class="btn btn-sm btn-outline-primary"
+                                    title="Editar">
+                                ✏️
+                            </button>
+
+                            <button class="btn btn-sm btn-outline-danger"
+                                    title="Desactivar">
+                                🗑️
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Pie -->
+        <div class="card-footer bg-white text-muted">
+            4 usuarios registrados
+        </div>
+
+    </div>
+
+</div>

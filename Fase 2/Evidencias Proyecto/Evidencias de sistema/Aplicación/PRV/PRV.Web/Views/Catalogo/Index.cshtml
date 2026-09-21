@@ -1,0 +1,415 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Catálogo";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>Catálogo - PRV</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+</head>
+
+<body class="bg-light">
+
+    <!-- ENCABEZADO -->
+    <div class="bg-white border-bottom">
+        <div class="container py-3">
+
+            <div class="d-flex justify-content-between align-items-center">
+
+                <div>
+                    <h3 class="mb-0 fw-bold text-primary">
+                        PRV
+                    </h3>
+
+                    <small class="text-muted">
+                        Catálogo de productos
+                    </small>
+                </div>
+
+                <a asp-controller="Inicio"
+                   asp-action="Index"
+                   class="btn btn-outline-secondary">
+
+                    <i class="bi bi-arrow-left"></i>
+                    Volver
+
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="container py-5">
+
+        <!-- EMPRESA -->
+        <div class="text-center mb-5">
+
+            <h2 class="fw-bold">
+                Abarrotes S.A.
+            </h2>
+
+            <p class="text-muted">
+                Conoce nuestros productos y precios mayoristas
+            </p>
+
+        </div>
+
+
+        <!-- MENSAJE MAYORISTA -->
+        <div class="alert alert-primary text-center mb-5">
+
+            <i class="bi bi-stars me-1"></i>
+
+            <strong>¡Compra a precio mayorista!</strong>
+
+            Regístrate como cliente mayorista y accede
+            a nuestros mejores precios.
+
+        </div>
+
+
+        <!-- PRODUCTOS -->
+        <div class="row g-4">
+
+
+            <!-- PRODUCTO 1 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <div class="mb-3">
+                            <i class="bi bi-box-seam fs-1 text-primary"></i>
+                        </div>
+
+                        <h5 class="card-title fw-bold">
+                            Arroz Premium 1 Kg
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Arroz grado 1 de excelente calidad.
+                        </p>
+
+                        <hr />
+
+                        <div class="mb-2">
+
+                            <span class="text-muted">
+                                Precio normal
+                            </span>
+
+                            <h5>
+                                $1.690
+                            </h5>
+
+                        </div>
+
+                        <div class="bg-success-subtle rounded p-3">
+
+                            <small class="text-success fw-bold">
+                                PRECIO MAYORISTA
+                            </small>
+
+                            <h3 class="text-success fw-bold mb-0">
+                                $1.290
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 2 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <div class="mb-3">
+                            <i class="bi bi-box-seam fs-1 text-primary"></i>
+                        </div>
+
+                        <h5 class="card-title fw-bold">
+                            Aceite Vegetal 1 Lt
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Aceite vegetal para uso doméstico y comercial.
+                        </p>
+
+                        <hr />
+
+                        <div class="mb-2">
+
+                            <span class="text-muted">
+                                Precio normal
+                            </span>
+
+                            <h5>
+                                $2.490
+                            </h5>
+
+                        </div>
+
+                        <div class="bg-success-subtle rounded p-3">
+
+                            <small class="text-success fw-bold">
+                                PRECIO MAYORISTA
+                            </small>
+
+                            <h3 class="text-success fw-bold mb-0">
+                                $1.890
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 3 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <div class="mb-3">
+                            <i class="bi bi-box-seam fs-1 text-primary"></i>
+                        </div>
+
+                        <h5 class="card-title fw-bold">
+                            Azúcar 1 Kg
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Azúcar granulada blanca en formato de 1 kilo.
+                        </p>
+
+                        <hr />
+
+                        <div class="mb-2">
+
+                            <span class="text-muted">
+                                Precio normal
+                            </span>
+
+                            <h5>
+                                $1.390
+                            </h5>
+
+                        </div>
+
+                        <div class="bg-success-subtle rounded p-3">
+
+                            <small class="text-success fw-bold">
+                                PRECIO MAYORISTA
+                            </small>
+
+                            <h3 class="text-success fw-bold mb-0">
+                                $990
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 4 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <div class="mb-3">
+                            <i class="bi bi-box-seam fs-1 text-primary"></i>
+                        </div>
+
+                        <h5 class="card-title fw-bold">
+                            Fideos Spaghetti
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Pasta spaghetti en formato de 400 gramos.
+                        </p>
+
+                        <hr />
+
+                        <div class="mb-2">
+
+                            <span class="text-muted">
+                                Precio normal
+                            </span>
+
+                            <h5>
+                                $1.190
+                            </h5>
+
+                        </div>
+
+                        <div class="bg-success-subtle rounded p-3">
+
+                            <small class="text-success fw-bold">
+                                PRECIO MAYORISTA
+                            </small>
+
+                            <h3 class="text-success fw-bold mb-0">
+                                $790
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 5 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <div class="mb-3">
+                            <i class="bi bi-box-seam fs-1 text-primary"></i>
+                        </div>
+
+                        <h5 class="card-title fw-bold">
+                            Harina 1 Kg
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Harina sin polvos de hornear.
+                        </p>
+
+                        <hr />
+
+                        <div class="mb-2">
+
+                            <span class="text-muted">
+                                Precio normal
+                            </span>
+
+                            <h5>
+                                $1.290
+                            </h5>
+
+                        </div>
+
+                        <div class="bg-success-subtle rounded p-3">
+
+                            <small class="text-success fw-bold">
+                                PRECIO MAYORISTA
+                            </small>
+
+                            <h3 class="text-success fw-bold mb-0">
+                                $890
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCTO 6 -->
+            <div class="col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow-sm border-0">
+
+                    <div class="card-body p-4">
+
+                        <div class="mb-3">
+                            <i class="bi bi-box-seam fs-1 text-primary"></i>
+                        </div>
+
+                        <h5 class="card-title fw-bold">
+                            Leche Entera 1 Lt
+                        </h5>
+
+                        <p class="card-text text-muted">
+                            Leche entera larga vida en caja.
+                        </p>
+
+                        <hr />
+
+                        <div class="mb-2">
+
+                            <span class="text-muted">
+                                Precio normal
+                            </span>
+
+                            <h5>
+                                $1.350
+                            </h5>
+
+                        </div>
+
+                        <div class="bg-success-subtle rounded p-3">
+
+                            <small class="text-success fw-bold">
+                                PRECIO MAYORISTA
+                            </small>
+
+                            <h3 class="text-success fw-bold mb-0">
+                                $1.050
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MENSAJE FINAL -->
+       
+
+    </div>
+
+</body>
+
+</html>

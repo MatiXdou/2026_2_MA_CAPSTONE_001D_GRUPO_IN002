@@ -1,0 +1,107 @@
+﻿@{
+    ViewData["Title"] = "Acceso administración";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Acceso administración - PRV</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+</head>
+
+<body class="bg-light">
+
+    <div class="d-flex justify-content-center align-items-center min-vh-100">
+
+        <div class="card shadow-sm"
+             style="width: 420px;">
+
+            <div class="card-body p-4">
+
+                <div class="text-center mb-4">
+
+                    <div class="mb-3">
+                        <i class="bi bi-person-lock"
+                           style="font-size: 48px;"></i>
+                    </div>
+
+                    <h2>Acceso administración</h2>
+
+                    <p class="text-muted">
+                        Ingresa tus credenciales para acceder a PRV
+                    </p>
+
+                </div>
+
+
+                <form asp-controller="Administracion"
+                      asp-action="Ingresar"
+                      method="post">
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            Correo
+                        </label>
+
+                        <input type="email"
+                               id="email"
+                               class="form-control"
+                               placeholder="correo@empresa.cl"
+                                />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="clave" class="form-label">
+                            Clave
+                        </label>
+
+                        <input type="password"
+                               id="clave"
+                               class="form-control"
+                               placeholder="Ingrese su clave"
+                            />
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary w-100 mb-2">
+                        Ingresar
+                    </button>
+
+                    <div class="text-center mt-3">
+
+                        <a asp-controller="Administracion"
+                           asp-action="IngresarAdministrador"
+                           class="text-decoration-none">
+
+                            Emula acceso con perfil administrador de la empresa
+
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

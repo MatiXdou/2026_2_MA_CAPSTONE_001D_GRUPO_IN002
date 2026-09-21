@@ -1,0 +1,215 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Ingresar";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>Ingresar - PRV</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+</head>
+
+<body>
+
+    <div class="acceso-inicio">
+
+        <div class="acceso-card">
+
+            <div class="text-center mb-4">
+
+                <div class="acceso-logo">
+                    <i class="bi bi-person-fill"></i>
+                </div>
+
+                <h1 class="acceso-titulo">
+                    Bienvenido a
+                </h1>
+
+                <h5 class="mt-3">
+                    <i class="bi bi-building"></i>
+                    @ViewBag.RazonSocial
+                </h5>
+
+                <p class="text-muted mt-2">
+                    Ingrese sus datos para continuar
+                </p>
+
+            </div>
+
+            <input type="hidden"
+                   id="idEmpresa"
+                   value="@ViewBag.IdEmpresa" />
+
+            <form>
+
+                <!-- CORREO -->
+                <div class="mb-3">
+
+                    <label for="email"
+                           class="form-label">
+                        Correo
+                    </label>
+
+                    <input type="email"
+                           id="email"
+                           class="form-control"
+                           placeholder="Ingrese su correo" />
+
+                </div>
+
+
+                <!-- NOMBRE -->
+                <div class="mb-3"
+                     id="grupoNombre"
+                     style="display:none;">
+
+                    <label for="nombre"
+                           class="form-label">
+                        Nombre
+                    </label>
+
+                    <input type="text"
+                           id="nombre"
+                           class="form-control" />
+
+                </div>
+
+                <!-- QUIERO SER CLIENTE MAYORISTA -->
+                <div class="mb-3"
+                     id="grupoSolicitudMayorista"
+                     style="display:none;">
+
+                    <div class="form-check">
+
+                        <input class="form-check-input"
+                               type="checkbox"
+                               id="chkMayorista" />
+
+                        <label class="form-check-label"
+                               for="chkMayorista">
+                            Quiero ser cliente mayorista
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DATOS MAYORISTA -->
+                <div id="grupoDatosMayorista"
+                     style="display:none;">
+
+                    <div class="mb-3">
+
+                        <label for="rut"
+                               class="form-label">
+                            RUT
+                        </label>
+
+                        <input type="text"
+                               id="rut"
+                               class="form-control"
+                               placeholder="Ingrese su RUT" />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label for="telefono"
+                               class="form-label">
+                            Teléfono
+                        </label>
+
+                        <input type="text"
+                               id="telefono"
+                               class="form-control"
+                               placeholder="Ingrese su teléfono" />
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label for="direccion"
+                               class="form-label">
+                            Dirección
+                        </label>
+
+                        <input type="text"
+                               id="direccion"
+                               class="form-control"
+                               placeholder="Ingrese su dirección" />
+
+                    </div>
+
+                </div>
+
+
+                <!-- CLAVE -->
+                <div class="mb-3"
+                     id="grupoClave"
+                     style="display:none;">
+
+                    <label for="clave"
+                           class="form-label">
+                        Clave
+                    </label>
+
+                    <input type="password"
+                           id="clave"
+                           class="form-control"
+                           placeholder="Ingrese su clave" />
+
+                </div>
+
+
+                <!-- CONTINUAR -->
+                <div class="d-grid">
+
+                    <button type="button"
+                            id="btnContinuar"
+                            class="btn btn-primary">
+                        Continuar
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div class="text-center mt-3">
+
+                <a asp-controller="Inicio"
+                   asp-action="Index"
+                   class="text-decoration-none">
+
+                    Volver a empresas
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="~/js/ingresar.js"asp-append-version="true"></script>
+
+</body>
+
+</html>
