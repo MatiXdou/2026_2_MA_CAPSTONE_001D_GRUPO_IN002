@@ -71,6 +71,84 @@ namespace PRV.Web.Repositories
             );
         }
 
+  
+        public Usuario ValidarAccesoAdministracion(
+            string email,
+            string passwordHash)
+        {
+            using var conexion =
+                new SqlConnection(_connectionString);
+
+            var usuario = conexion.QueryFirstOrDefault<Usuario>(
+                "dbo.sp_Usuario_ValidarAccesoAdministracion",
+                new
+                {
+                    Email = email,
+                    PasswordHash = passwordHash
+                },
+                commandType: CommandType.StoredProcedure
+            );
+
+            return usuario;
+        }
+
+      
+        public List<Usuario> ListarSolicitantes(long idEmpresa)
+        {
+            using var conexion =
+                new SqlConnection(_connectionString);
+
+            return conexion.Query<Usuario>(
+                "dbo.sp_Usuario_ListarSolicitantes",
+                new
+                {
+                    IdEmpresa = idEmpresa
+                },
+                commandType: CommandType.StoredProcedure
+            ).ToList();
+        }
+
+        public void AprobarMayorista(
+            long idUsuario,
+            long idEmpresa,
+            string passwordHash)
+        {
+            using var conexion =
+                new SqlConnection(_connectionString);
+
+            conexion.Execute(
+                "dbo.sp_Usuario_AprobarMayorista",
+                new
+                {
+                    IdUsuario = idUsuario,
+                    IdEmpresa = idEmpresa,
+                    PasswordHash = passwordHash
+                },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
+
+        public Usuario BuscarPorId(
+            long idUsuario,
+            long idEmpresa)
+        {
+            using var conexion =
+                new SqlConnection(_connectionString);
+
+            return conexion.QueryFirstOrDefault<Usuario>(
+                "dbo.sp_Usuario_BuscarPorId",
+                new
+                {
+                    IdUsuario = idUsuario,
+                    IdEmpresa = idEmpresa
+                },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
+
+
 
     }
 }

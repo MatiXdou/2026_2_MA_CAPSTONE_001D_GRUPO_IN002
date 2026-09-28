@@ -9,14 +9,34 @@ namespace PRV.Web.Controllers
         private readonly EmpresaService _empresaService;
         private readonly UsuarioService _usuarioService;
 
-        public InicioController(EmpresaService empresaService, UsuarioService usuarioService)
+        private readonly CorreoService _correoService;
+
+        public InicioController(EmpresaService empresaService, UsuarioService usuarioService, CorreoService correoService)
         {
             _empresaService = empresaService;
             _usuarioService = usuarioService;
+            _correoService = correoService;
         }
 
         public IActionResult Index()
         {
+
+
+            //try
+            //{
+            //    _correoService.Enviar(
+            //        "marcaro2001@gmail.com",
+            //        "Prueba correo PRV",
+            //        "Este es un correo de prueba enviado desde PRV."
+            //    );
+            //}
+            //catch (Exception ex)
+            //{
+            //    return Content("ERROR CORREO: " + ex.Message);
+            //}
+
+
+
             //filtra solo empresa activas
             var empresas = _empresaService.Listar().Where(e => e.Estado == true).ToList();
 

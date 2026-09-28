@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<PRV.Web.Models.Usuario>
+
+@{
     ViewData["Title"] = "Solicitudes Mayoristas";
 }
 
@@ -6,11 +8,13 @@
 
     <!-- ENCABEZADO -->
     <div class="mb-4">
+
         <h2>Solicitudes Mayoristas</h2>
 
         <p class="text-muted">
             Solicitudes pendientes para acceder como cliente mayorista.
         </p>
+
     </div>
 
 
@@ -36,64 +40,39 @@
 
                     <tbody>
 
-                        <!-- DATO DE PRUEBA -->
-                        <tr>
-                            <td>Juan Pérez</td>
+                        @foreach (var usuario in Model)
+                        {
+                            <tr>
 
-                            <td>juan@correo.cl</td>
+                                <td>@usuario.Nombre</td>
 
-                            <td>12.345.678-9</td>
+                                <td>@usuario.Email</td>
 
-                            <td>9 1234 5678</td>
+                                <td>@usuario.Rut</td>
 
-                            <td>
-                                <span class="badge bg-warning text-dark">
-                                    Solicitante
-                                </span>
-                            </td>
+                                <td>@usuario.Telefono</td>
 
-                            <td class="text-end">
+                                <td>
+                                    <span class="badge bg-warning text-dark">
+                                        @usuario.TipoCliente
+                                    </span>
+                                </td>
 
-                                <button type="button"
-                                        class="btn btn-success btn-sm">
+                                <td class="text-end">
 
-                                    <i class="bi bi-check-circle me-1"></i>
-                                    Aprobar
+                                    <button type="button"
+                                            class="btn btn-success btn-sm btnAprobar"
+                                            data-id="@usuario.IdUsuario">
 
-                                </button>
+                                        <i class="bi bi-check-circle me-1"></i>
+                                        Aprobar
 
-                            </td>
-                        </tr>
+                                    </button>
 
+                                </td>
 
-                        <!-- DATO DE PRUEBA -->
-                        <tr>
-                            <td>María González</td>
-
-                            <td>maria@correo.cl</td>
-
-                            <td>15.555.555-5</td>
-
-                            <td>9 8765 4321</td>
-
-                            <td>
-                                <span class="badge bg-warning text-dark">
-                                    Solicitante
-                                </span>
-                            </td>
-
-                            <td class="text-end">
-
-                                <button type="button"
-                                        class="btn btn-success btn-sm">
-
-                                    <i class="bi bi-check-circle me-1"></i>
-                                    Aprobar
-
-                                </button>
-
-                            </td>
-                        </tr>
+                            </tr>
+                        }
 
                     </tbody>
 
@@ -106,3 +85,10 @@
     </div>
 
 </div>
+
+@section Scripts {
+
+    <script src="~/js/solicitudMayorista.js"
+            asp-append-version="true"></script>
+
+}

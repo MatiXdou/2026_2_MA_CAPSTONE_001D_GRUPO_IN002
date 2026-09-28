@@ -5,6 +5,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,52 +48,52 @@
                 </div>
 
 
-                <form asp-controller="Administracion"
-                      asp-action="Ingresar"
-                      method="post">
+                <div class="mb-3">
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">
-                            Correo
-                        </label>
+                    <label for="email"
+                           class="form-label">
+                        Correo
+                    </label>
 
-                        <input type="email"
-                               id="email"
-                               class="form-control"
-                               placeholder="correo@empresa.cl"
-                                />
-                    </div>
+                    <input type="email"
+                           id="email"
+                           class="form-control"
+                           placeholder="correo@empresa.cl" />
 
-                    <div class="mb-4">
-                        <label for="clave" class="form-label">
-                            Clave
-                        </label>
+                </div>
 
-                        <input type="password"
-                               id="clave"
-                               class="form-control"
-                               placeholder="Ingrese su clave"
-                            />
-                    </div>
 
-                    <button type="submit"
-                            class="btn btn-primary w-100 mb-2">
-                        Ingresar
-                    </button>
+                <div class="mb-4">
 
-                    <div class="text-center mt-3">
+                    <label for="clave"
+                           class="form-label">
+                        Clave
+                    </label>
 
-                        <a asp-controller="Administracion"
-                           asp-action="IngresarAdministrador"
-                           class="text-decoration-none">
+                    <input type="password"
+                           id="clave"
+                           class="form-control"
+                           placeholder="Ingrese su clave" />
 
-                            Emula acceso con perfil administrador de la empresa
+                </div>
 
-                        </a>
 
-                    </div>
+                <button type="button"
+                        class="btn btn-primary w-100 mb-2"
+                        id="btnIngresar">
+                    Ingresar
+                </button>
 
-                </form>
+
+                <div class="text-center mt-3">
+
+                    <a asp-controller="Inicio"
+                       asp-action="Index"
+                       class="text-decoration-none">
+                        ← Volver
+                    </a>
+
+                </div>
 
             </div>
 
@@ -103,5 +104,9 @@
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="~/js/administracion.js"
+            asp-append-version="true"></script>
+
 </body>
+
 </html>

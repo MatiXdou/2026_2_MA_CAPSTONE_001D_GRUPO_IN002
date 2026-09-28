@@ -8,15 +8,8 @@ namespace PRV.Web.Controllers
     {
         public IActionResult Index()
         {
-
-            ViewBag.Nombre = HttpContext.Session.GetString("Nombre");
-            ViewBag.Email = HttpContext.Session.GetString("Email");
-            ViewBag.TipoCliente = HttpContext.Session.GetString("TipoCliente");
-            ViewBag.IdEmpresa = HttpContext.Session.GetString("IdEmpresa");
-
             return View();
         }
 
-        
     }
 }

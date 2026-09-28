@@ -121,10 +121,12 @@
 
             if (!respuesta.ok) {
 
-                alert("No fue posible modificar la empresa.");
+                const mensaje = await respuesta.text();
+
+                alert(mensaje);
+
                 return;
             }
-
 
             // Actualizar la fila visualmente
             const celdas = filaEditando.cells;
@@ -178,11 +180,12 @@
 
             if (!respuesta.ok) {
 
-                alert("No fue posible crear la empresa.");
+                const mensaje = await respuesta.text();
+
+                alert(mensaje);
 
                 return;
             }
-
 
             alert("Empresa creada correctamente.");
             window.location.reload();

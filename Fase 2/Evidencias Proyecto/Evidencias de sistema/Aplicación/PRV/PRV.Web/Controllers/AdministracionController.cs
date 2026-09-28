@@ -1,37 +1,61 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PRV.Web.Models;
+using PRV.Web.Services;
 
 namespace PRV.Web.Controllers
 {
     public class AdministracionController : Controller
     {
-        // Muestra el login
+        private readonly UsuarioService _usuarioService;
+
+        public AdministracionController(UsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;
+        }
+
+
+        // ==========================================
+        // MOSTRAR LOGIN
+        // ==========================================
         public IActionResult Index()
         {
             return View();
         }
 
 
-        // SuperAdministrador - temporal
+        // ==========================================
+        // INGRESAR
+        // ==========================================
         [HttpPost]
-        public IActionResult Ingresar()
+        public IActionResult Ingresar([FromBody] Usuario usuario)
         {
-            HttpContext.Session.SetString("IdRol", "1");
-            HttpContext.Session.SetString("Nombre", "SuperAdministrador");
+            var usuarioValidado = _usuarioService.ValidarAccesoAdministracion(
+                usuario.Email,
+                usuario.PasswordHash ?? ""
+            );
 
-            return RedirectToAction("Index", "Home");
+            if (usuarioValidado == null)
+            {
+                return Json(new { valido = false });
+            }
+
+            // Guardar datos del usuario en Session
+            HttpContext.Session.SetString("IdUsuario", usuarioValidado.IdUsuario.ToString());
+            HttpContext.Session.SetString("Nombre", usuarioValidado.Nombre);
+            HttpContext.Session.SetString("Email", usuarioValidado.Email);
+            HttpContext.Session.SetString("IdEmpresa", usuarioValidado.IdEmpresa?.ToString() ?? "");
+            HttpContext.Session.SetString("IdRol", usuarioValidado.IdRol?.ToString() ?? "");
+
+            return Json(new
+            {
+                valido = true,
+                url = Url.Action("Index", "Home")
+            });
         }
 
-
-        // Administrador de empresa - temporal
-        public IActionResult IngresarAdministrador()
-        {
-            HttpContext.Session.SetString("IdRol", "2");
-            HttpContext.Session.SetString("Nombre", "Administrador");
-
-            return RedirectToAction("Index", "Home");
-        }
-
-
+        // ==========================================
+        // SALIR
+        // ==========================================
         public IActionResult Salir()
         {
             HttpContext.Session.Clear();

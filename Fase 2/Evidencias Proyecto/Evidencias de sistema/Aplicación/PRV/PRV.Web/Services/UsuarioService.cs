@@ -26,5 +26,41 @@ namespace PRV.Web.Services
         {
             return _usuarioRepository.ValidarClave(email, idEmpresa, passwordHash);
         }
+
+        public Usuario ValidarAccesoAdministracion(string email, string passwordHash)
+        {
+            return _usuarioRepository.ValidarAccesoAdministracion(email, passwordHash);
+        }
+
+ 
+        public List<Usuario> ListarSolicitantes(long idEmpresa)
+        {
+            return _usuarioRepository.ListarSolicitantes(idEmpresa);
+        }
+
+
+
+        public void AprobarMayorista(
+         long idUsuario,
+         long idEmpresa,
+         string passwordHash)
+        {
+            _usuarioRepository.AprobarMayorista(
+                idUsuario,
+                idEmpresa,
+                passwordHash
+            );
+        }
+
+        public Usuario BuscarPorId(
+            long idUsuario,
+            long idEmpresa)
+        {
+            return _usuarioRepository.BuscarPorId(
+                idUsuario,
+                idEmpresa
+            );
+        }
+
     }
 }

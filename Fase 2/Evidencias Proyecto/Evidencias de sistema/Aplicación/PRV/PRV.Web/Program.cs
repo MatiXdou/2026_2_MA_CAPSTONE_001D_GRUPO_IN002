@@ -22,8 +22,7 @@ builder.Services.AddScoped<ProductoService>();
 builder.Services.AddScoped<CompraRepository>();
 builder.Services.AddScoped<CompraService>();
 
-// Obtiene la cadena de conexión usando el nombre que pusiste en el JSON ("PRV_BD")
-var connectionString = builder.Configuration.GetConnectionString("PRV_BD");
+builder.Services.AddScoped<CorreoService>();
 
 var app = builder.Build();
 

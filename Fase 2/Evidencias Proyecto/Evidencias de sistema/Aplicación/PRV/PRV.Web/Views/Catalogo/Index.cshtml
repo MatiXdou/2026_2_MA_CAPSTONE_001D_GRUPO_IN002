@@ -1,6 +1,10 @@
-﻿@{
+﻿@model List<PRV.Web.Models.Producto>
+
+@{
     Layout = null;
     ViewData["Title"] = "Catálogo";
+
+    var empresa = ViewBag.Empresa;
 }
 
 <!DOCTYPE html>
@@ -29,11 +33,13 @@
 
     <!-- ENCABEZADO -->
     <div class="bg-white border-bottom">
+
         <div class="container py-3">
 
             <div class="d-flex justify-content-between align-items-center">
 
                 <div>
+
                     <h3 class="mb-0 fw-bold text-primary">
                         PRV
                     </h3>
@@ -41,7 +47,9 @@
                     <small class="text-muted">
                         Catálogo de productos
                     </small>
+
                 </div>
+
 
                 <a asp-controller="Inicio"
                    asp-action="Index"
@@ -55,6 +63,7 @@
             </div>
 
         </div>
+
     </div>
 
 
@@ -64,7 +73,7 @@
         <div class="text-center mb-5">
 
             <h2 class="fw-bold">
-                Abarrotes S.A.
+                @empresa.RazonSocial
             </h2>
 
             <p class="text-muted">
@@ -90,323 +99,91 @@
         <!-- PRODUCTOS -->
         <div class="row g-4">
 
+            @foreach (var producto in Model)
+            {
+                <div class="col-md-6 col-lg-4">
 
-            <!-- PRODUCTO 1 -->
-            <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0">
 
-                <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body p-4">
 
-                    <div class="card-body p-4">
+                            <div class="mb-3">
 
-                        <div class="mb-3">
-                            <i class="bi bi-box-seam fs-1 text-primary"></i>
-                        </div>
+                                <i class="bi bi-box-seam fs-1 text-primary"></i>
 
-                        <h5 class="card-title fw-bold">
-                            Arroz Premium 1 Kg
-                        </h5>
+                            </div>
 
-                        <p class="card-text text-muted">
-                            Arroz grado 1 de excelente calidad.
-                        </p>
 
-                        <hr />
+                            <h5 class="card-title fw-bold">
 
-                        <div class="mb-2">
+                                @producto.Nombre
 
-                            <span class="text-muted">
-                                Precio normal
-                            </span>
-
-                            <h5>
-                                $1.690
                             </h5>
 
-                        </div>
 
-                        <div class="bg-success-subtle rounded p-3">
+                            <p class="card-text text-muted">
 
-                            <small class="text-success fw-bold">
-                                PRECIO MAYORISTA
-                            </small>
+                                @producto.Descripcion
 
-                            <h3 class="text-success fw-bold mb-0">
-                                $1.290
-                            </h3>
+                            </p>
+
+
+                            <hr />
+
+
+                            <!-- PRECIO NORMAL -->
+                            <div class="mb-2">
+
+                                <span class="text-muted">
+                                    Precio normal
+                                </span>
+
+                                <h5>
+
+                                    $@producto.PrecioVenta.ToString("N0")
+
+                                </h5>
+
+                            </div>
+
+
+                            <!-- PRECIO MAYORISTA -->
+                            <div class="bg-success-subtle rounded p-3">
+
+                                <small class="text-success fw-bold">
+
+                                    PRECIO MAYORISTA
+
+                                </small>
+
+
+                                <h3 class="text-success fw-bold mb-0">
+
+                                    $@producto.PrecioMayorista.ToString("N0")
+
+                                </h3>
+
+                            </div>
 
                         </div>
 
                     </div>
 
                 </div>
-
-            </div>
-
-
-            <!-- PRODUCTO 2 -->
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 shadow-sm border-0">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3">
-                            <i class="bi bi-box-seam fs-1 text-primary"></i>
-                        </div>
-
-                        <h5 class="card-title fw-bold">
-                            Aceite Vegetal 1 Lt
-                        </h5>
-
-                        <p class="card-text text-muted">
-                            Aceite vegetal para uso doméstico y comercial.
-                        </p>
-
-                        <hr />
-
-                        <div class="mb-2">
-
-                            <span class="text-muted">
-                                Precio normal
-                            </span>
-
-                            <h5>
-                                $2.490
-                            </h5>
-
-                        </div>
-
-                        <div class="bg-success-subtle rounded p-3">
-
-                            <small class="text-success fw-bold">
-                                PRECIO MAYORISTA
-                            </small>
-
-                            <h3 class="text-success fw-bold mb-0">
-                                $1.890
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCTO 3 -->
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 shadow-sm border-0">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3">
-                            <i class="bi bi-box-seam fs-1 text-primary"></i>
-                        </div>
-
-                        <h5 class="card-title fw-bold">
-                            Azúcar 1 Kg
-                        </h5>
-
-                        <p class="card-text text-muted">
-                            Azúcar granulada blanca en formato de 1 kilo.
-                        </p>
-
-                        <hr />
-
-                        <div class="mb-2">
-
-                            <span class="text-muted">
-                                Precio normal
-                            </span>
-
-                            <h5>
-                                $1.390
-                            </h5>
-
-                        </div>
-
-                        <div class="bg-success-subtle rounded p-3">
-
-                            <small class="text-success fw-bold">
-                                PRECIO MAYORISTA
-                            </small>
-
-                            <h3 class="text-success fw-bold mb-0">
-                                $990
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCTO 4 -->
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 shadow-sm border-0">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3">
-                            <i class="bi bi-box-seam fs-1 text-primary"></i>
-                        </div>
-
-                        <h5 class="card-title fw-bold">
-                            Fideos Spaghetti
-                        </h5>
-
-                        <p class="card-text text-muted">
-                            Pasta spaghetti en formato de 400 gramos.
-                        </p>
-
-                        <hr />
-
-                        <div class="mb-2">
-
-                            <span class="text-muted">
-                                Precio normal
-                            </span>
-
-                            <h5>
-                                $1.190
-                            </h5>
-
-                        </div>
-
-                        <div class="bg-success-subtle rounded p-3">
-
-                            <small class="text-success fw-bold">
-                                PRECIO MAYORISTA
-                            </small>
-
-                            <h3 class="text-success fw-bold mb-0">
-                                $790
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCTO 5 -->
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 shadow-sm border-0">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3">
-                            <i class="bi bi-box-seam fs-1 text-primary"></i>
-                        </div>
-
-                        <h5 class="card-title fw-bold">
-                            Harina 1 Kg
-                        </h5>
-
-                        <p class="card-text text-muted">
-                            Harina sin polvos de hornear.
-                        </p>
-
-                        <hr />
-
-                        <div class="mb-2">
-
-                            <span class="text-muted">
-                                Precio normal
-                            </span>
-
-                            <h5>
-                                $1.290
-                            </h5>
-
-                        </div>
-
-                        <div class="bg-success-subtle rounded p-3">
-
-                            <small class="text-success fw-bold">
-                                PRECIO MAYORISTA
-                            </small>
-
-                            <h3 class="text-success fw-bold mb-0">
-                                $890
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PRODUCTO 6 -->
-            <div class="col-md-6 col-lg-4">
-
-                <div class="card h-100 shadow-sm border-0">
-
-                    <div class="card-body p-4">
-
-                        <div class="mb-3">
-                            <i class="bi bi-box-seam fs-1 text-primary"></i>
-                        </div>
-
-                        <h5 class="card-title fw-bold">
-                            Leche Entera 1 Lt
-                        </h5>
-
-                        <p class="card-text text-muted">
-                            Leche entera larga vida en caja.
-                        </p>
-
-                        <hr />
-
-                        <div class="mb-2">
-
-                            <span class="text-muted">
-                                Precio normal
-                            </span>
-
-                            <h5>
-                                $1.350
-                            </h5>
-
-                        </div>
-
-                        <div class="bg-success-subtle rounded p-3">
-
-                            <small class="text-success fw-bold">
-                                PRECIO MAYORISTA
-                            </small>
-
-                            <h3 class="text-success fw-bold mb-0">
-                                $1.050
-                            </h3>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
+            }
 
         </div>
 
 
-        <!-- MENSAJE FINAL -->
-       
+        <!-- SIN PRODUCTOS -->
+        @if (Model.Count == 0)
+        {
+            <div class="text-center text-muted py-5">
+
+                No hay productos disponibles en este momento.
+
+            </div>
+        }
 
     </div>
 

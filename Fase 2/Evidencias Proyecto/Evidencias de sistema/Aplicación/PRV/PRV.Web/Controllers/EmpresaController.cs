@@ -52,9 +52,16 @@ namespace PRV.Web.Controllers
                 return BadRequest();
             }
 
-            _empresaService.Crear(empresa);
+            try
+            {
+                _empresaService.Crear(empresa);
 
-            return Ok();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // ==========================================

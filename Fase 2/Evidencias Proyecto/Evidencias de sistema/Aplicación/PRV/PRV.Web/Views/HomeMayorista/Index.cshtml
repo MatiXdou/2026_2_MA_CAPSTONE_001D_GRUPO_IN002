@@ -97,19 +97,27 @@
 
                     </div>
 
-
                     <div class="card-footer bg-white border-0">
 
-                        <a asp-controller="Compra"
-                           asp-action="Index"
-                           asp-route-idProducto="@producto.IdProducto"
-                           class="btn btn-primary w-100">
+                        @if (producto.Stock > 0)
+                        {
+                            <a asp-controller="Compra"
+                               asp-action="Index"
+                               asp-route-idProducto="@producto.IdProducto"
+                               class="btn btn-primary w-100">
 
-                            <i class="bi bi-cart-plus me-1"></i>
+                                <i class="bi bi-cart-plus me-1"></i>
+                                Comprar
 
-                            Comprar
-
-                        </a>
+                            </a>
+                        }
+                        else
+                        {
+                            <div class="alert alert-warning text-center mb-0 py-2">
+                                <i class="bi bi-exclamation-triangle me-1"></i>
+                                Sin stock
+                            </div>
+                        }
 
                     </div>
 

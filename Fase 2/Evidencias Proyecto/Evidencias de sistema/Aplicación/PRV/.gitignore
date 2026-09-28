@@ -13,6 +13,16 @@
 *.userosscache
 *.sln.docstates
 
+# Configuraciones y credenciales
+appsettings*.json
+!appsettings.example.json
+
+# Certificados y llaves
+*.pfx
+*.p12
+*.cer
+*.key
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
