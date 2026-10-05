@@ -19,10 +19,15 @@ builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<ProductoRepository>();
 builder.Services.AddScoped<ProductoService>();
 
+builder.Services.AddScoped<VentaRepository>();
+builder.Services.AddScoped<VentaService>();
+
 builder.Services.AddScoped<CompraRepository>();
 builder.Services.AddScoped<CompraService>();
 
 builder.Services.AddScoped<CorreoService>();
+
+var connectionString = builder.Configuration.GetConnectionString("PRV_BD");
 
 var app = builder.Build();
 

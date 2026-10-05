@@ -68,7 +68,7 @@ namespace PRV.Web.Controllers
             //    .Next(1000, 10000)
             //    .ToString();
 
-            //TODO clave temporal
+            // TODO clave temporal
             string claveTemporal = "demo";
 
             // Aprobar mayorista y guardar clave temporal

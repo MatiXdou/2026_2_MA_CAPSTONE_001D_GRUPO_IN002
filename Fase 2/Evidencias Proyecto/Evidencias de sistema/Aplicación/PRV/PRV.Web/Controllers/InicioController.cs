@@ -22,21 +22,6 @@ namespace PRV.Web.Controllers
         {
 
 
-            //try
-            //{
-            //    _correoService.Enviar(
-            //        "marcaro2001@gmail.com",
-            //        "Prueba correo PRV",
-            //        "Este es un correo de prueba enviado desde PRV."
-            //    );
-            //}
-            //catch (Exception ex)
-            //{
-            //    return Content("ERROR CORREO: " + ex.Message);
-            //}
-
-
-
             //filtra solo empresa activas
             var empresas = _empresaService.Listar().Where(e => e.Estado == true).ToList();
 
