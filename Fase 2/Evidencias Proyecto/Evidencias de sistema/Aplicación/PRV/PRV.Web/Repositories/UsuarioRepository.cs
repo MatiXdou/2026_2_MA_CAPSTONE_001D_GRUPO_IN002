@@ -149,6 +149,32 @@ namespace PRV.Web.Repositories
 
 
 
+        public int CambiarClave(long idUsuario, string passwordHash)
+        {
+            using var conexion = new SqlConnection(_connectionString);
+
+            return conexion.QuerySingle<int>(
+                "dbo.sp_Usuario_CambiarClave",
+                new
+                {
+                    IdUsuario = idUsuario,
+                    PasswordHash = passwordHash
+                },
+                commandType: CommandType.StoredProcedure
+            );
+        }
+
+
+        public Usuario BuscarPorIdUsuario(long idUsuario)
+        {
+            using var conexion = new SqlConnection(_connectionString);
+
+            return conexion.QueryFirstOrDefault<Usuario>(
+                "dbo.sp_Usuario_BuscarPorIdUsuario",
+                new { IdUsuario = idUsuario },
+                commandType: CommandType.StoredProcedure
+            );
+        }
 
     }
 }

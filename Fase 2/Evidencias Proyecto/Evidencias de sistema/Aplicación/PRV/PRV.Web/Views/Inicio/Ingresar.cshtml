@@ -125,7 +125,8 @@
                         <input type="text"
                                id="rut"
                                class="form-control"
-                               placeholder="Ingrese su RUT" />
+                               maxlength="12"
+                               placeholder="Ej: 12345678-5" />
 
                     </div>
 
@@ -139,8 +140,10 @@
                         <input type="text"
                                id="telefono"
                                class="form-control"
+                               maxlength="15"
+                               inputmode="numeric"
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                placeholder="Ingrese su teléfono" />
-
                     </div>
 
                     <div class="mb-3">
@@ -153,6 +156,7 @@
                         <input type="text"
                                id="direccion"
                                class="form-control"
+                               maxlength="255"
                                placeholder="Ingrese su dirección" />
 
                     </div>

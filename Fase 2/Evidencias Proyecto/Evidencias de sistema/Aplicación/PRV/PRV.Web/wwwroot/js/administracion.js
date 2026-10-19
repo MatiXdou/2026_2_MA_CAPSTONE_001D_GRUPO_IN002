@@ -4,11 +4,16 @@
 
 document.getElementById("btnIngresar").addEventListener("click", function () {
 
-    const valorEmail = document.getElementById("email").value;
+    const valorEmail = document.getElementById("email").value.trim();
     const valorClave = document.getElementById("clave").value;
 
-    if (valorEmail === "" || valorClave === "") {
+    if (valorEmail === "" || valorClave.trim() === "") {
         alert("Ingrese correo y clave.");
+        return;
+    }
+
+    if (!document.getElementById("email").checkValidity()) {
+        alert("Ingrese un correo válido.");
         return;
     }
 

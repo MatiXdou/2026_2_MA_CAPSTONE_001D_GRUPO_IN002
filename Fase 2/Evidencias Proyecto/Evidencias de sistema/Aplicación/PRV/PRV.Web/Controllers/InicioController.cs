@@ -139,7 +139,6 @@ namespace PRV.Web.Controllers
         private void GuardarSesion(Usuario usuario)
         {
             HttpContext.Session.SetString("IdUsuario", usuario.IdUsuario.ToString());
-
             HttpContext.Session.SetString("Nombre", usuario.Nombre);
             HttpContext.Session.SetString("Email", usuario.Email);
             HttpContext.Session.SetString("TipoCliente", usuario.TipoCliente ?? "");
@@ -147,7 +146,10 @@ namespace PRV.Web.Controllers
             HttpContext.Session.SetString("IdRol", usuario.IdRol?.ToString() ?? "");
         }
 
-
+        public IActionResult Error()
+        {
+            return RedirectToAction("Index", "Inicio");
+        }
 
     }
 }

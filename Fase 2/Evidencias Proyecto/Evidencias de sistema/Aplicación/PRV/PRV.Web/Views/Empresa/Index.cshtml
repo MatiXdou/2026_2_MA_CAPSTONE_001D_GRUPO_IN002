@@ -128,12 +128,7 @@
                                             title="Editar">
                                         ✏️
                                     </button>
-@* 
-                                    <button type="button"
-                                            class="btn btn-sm btn-outline-danger btn-eliminar"
-                                            title="Eliminar">
-                                        🗑️
-                                    </button> *@
+                                     
 
                                 </td>
 
@@ -203,6 +198,8 @@
                             <input type="text"
                                    class="form-control"
                                    id="txtRut"
+                                   maxlength="12"
+                                   placeholder="Ej: 12345678-5"
                                    required />
 
                         </div>
@@ -234,6 +231,8 @@
 
                             <input type="email"
                                    class="form-control"
+                                   maxlength="200"
+                                   required
                                    id="txtEmail" />
 
                         </div>
@@ -248,7 +247,11 @@
                             </label>
 
                             <input type="text"
+                                   maxlength="20"
+                                   inputmode="numeric"
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')"
                                    class="form-control"
+                                   required
                                    id="txtTelefono" />
 
                         </div>
@@ -308,6 +311,8 @@
                             <input type="text"
                                    class="form-control"
                                    id="txtNombreAdministrador"
+                                   maxlength="150"
+                                   oninput="this.value = this.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/g, '')"
                                    required />
 
                         </div>

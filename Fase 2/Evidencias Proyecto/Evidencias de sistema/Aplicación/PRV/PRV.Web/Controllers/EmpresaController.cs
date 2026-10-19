@@ -64,16 +64,5 @@ namespace PRV.Web.Controllers
             }
         }
 
-        // ==========================================
-        // ELIMINAR EMPRESA
-        // ==========================================
-        [HttpPost]
-        public IActionResult Eliminar([FromBody] long idEmpresa)
-        {
-            _empresaService.Eliminar(idEmpresa);
-
-            return Ok();
-        }
-
     }
 }

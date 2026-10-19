@@ -64,13 +64,10 @@ namespace PRV.Web.Controllers
 
 
             // Generar clave temporal de 4 dígitos
-            //string claveTemporal = Random.Shared
-            //    .Next(1000, 10000)
-            //    .ToString();
-
-            // TODO clave temporal
-            string claveTemporal = "demo";
-
+            string claveTemporal = Random.Shared
+                .Next(1000, 10000)
+                .ToString();
+    
             // Aprobar mayorista y guardar clave temporal
             _usuarioService.AprobarMayorista(
                 usuario.IdUsuario,

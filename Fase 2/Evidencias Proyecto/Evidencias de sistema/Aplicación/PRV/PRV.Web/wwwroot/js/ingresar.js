@@ -133,11 +133,11 @@ document.getElementById("btnContinuar").addEventListener("click", function () {
 
     if (quiereMayorista) {
 
-        const valorRut = document.getElementById("rut").value;
-        const valorTelefono = document.getElementById("telefono").value;
-        const valorDireccion = document.getElementById("direccion").value;
+        const valorRut = document.getElementById("rut").value.trim();
+        const valorTelefono = document.getElementById("telefono").value.trim();
+        const valorDireccion = document.getElementById("direccion").value.trim();
 
-        if (valorNombre === "" ||
+        if (valorNombre.trim() === "" ||
             valorRut === "" ||
             valorTelefono === "" ||
             valorDireccion === "") {
@@ -302,4 +302,56 @@ document.getElementById("btnContinuar").addEventListener("click", function () {
     }
 
 
+
 });
+
+
+// =========================================================
+// VALIDAR RUT AL SALIR DEL foco
+// =========================================================
+
+document.getElementById("rut").addEventListener("blur", function () {
+
+    const rut = this.value.trim();
+
+  
+
+
+    if (rut === "") {
+        return;
+    }
+
+    if (!validarRut(rut)) {
+        alert("El RUT ingresado no es válido.");
+        this.value = "";
+    }
+
+});
+
+
+function validarRut(rut) {
+
+    rut = rut.replace(/\./g, "").replace(/-/g, "").toUpperCase();
+
+    if (!/^\d{7,8}[0-9K]$/.test(rut)) {
+        return false;
+    }
+
+    let suma = 0;
+    let multiplicador = 2;
+
+    for (let i = rut.length - 2; i >= 0; i--) {
+
+        suma += parseInt(rut[i]) * multiplicador;
+
+        multiplicador = multiplicador === 7 ? 2 : multiplicador + 1;
+    }
+
+    const resultado = 11 - (suma % 11);
+
+    const digito = resultado === 11 ? "0"
+        : resultado === 10 ? "K"
+            : resultado.toString();
+
+    return digito === rut.slice(-1);
+}

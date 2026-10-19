@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Cambiar clave";
 }
 
@@ -11,58 +12,88 @@
         </p>
     </div>
 
-    <div class="card shadow-sm">
+    <div class="card shadow-sm" style="max-width: 500px;">
         <div class="card-body">
 
-            <form>
+            <form id="formCambiarClave">
 
                 <div class="mb-3">
                     <label for="claveActual" class="form-label">
                         Clave actual
                     </label>
-                    <input type="password"
-                           id="claveActual"
-                           class="form-control">
+
+                    <div class="input-group">
+                        <input type="password"
+                               id="claveActual"
+                               class="form-control"
+                               maxlength="8"
+                               autocomplete="current-password">
+
+                        <button type="button"
+                                class="btn btn-outline-secondary"
+                                onclick="mostrarClave('claveActual')">
+                            👁
+                        </button>
+                    </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="claveNueva" class="form-label">
                         Clave nueva
                     </label>
-                    <input type="password"
-                           id="claveNueva"
-                           class="form-control">
+
+                    <div class="input-group">
+                        <input type="password"
+                               id="claveNueva"
+                               class="form-control"
+                               maxlength="8"
+                               autocomplete="new-password">
+
+                        <button type="button"
+                                class="btn btn-outline-secondary"
+                                onclick="mostrarClave('claveNueva')">
+                            👁
+                        </button>
+                    </div>
                 </div>
 
                 <div class="mb-4">
                     <label for="confirmarClave" class="form-label">
                         Confirmar clave nueva
                     </label>
-                    <input type="password"
-                           id="confirmarClave"
-                           class="form-control">
+
+                    <div class="input-group">
+                        <input type="password"
+                               id="confirmarClave"
+                               class="form-control"
+                               maxlength="8"
+                               autocomplete="new-password">
+
+                        <button type="button"
+                                class="btn btn-outline-secondary"
+                                onclick="mostrarClave('confirmarClave')">
+                            👁
+                        </button>
+                    </div>
                 </div>
 
                 <div class="d-flex gap-2">
-                    <button type="submit"
-                            class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary">
                         Cambiar clave
                     </button>
-
 
                     <button type="reset" class="btn btn-secondary">
                         Limpiar
                     </button>
-        @*             <a asp-controller="Home"
-                       asp-action="Index"
-                       class="btn btn-secondary">
-                        Cancelar
-                    </a> *@
                 </div>
 
             </form>
 
         </div>
     </div>
-
 </div>
+
+@section Scripts {
+    <script src="~/js/cuenta.js"
+            asp-append-version="true"></script>
+}

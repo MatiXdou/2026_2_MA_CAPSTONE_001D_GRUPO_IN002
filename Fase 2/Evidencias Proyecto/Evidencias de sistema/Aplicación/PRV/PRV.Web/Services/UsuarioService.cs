@@ -62,5 +62,19 @@ namespace PRV.Web.Services
             );
         }
 
+
+        public int CambiarClave(long idUsuario, string passwordHash)
+        {
+            return _usuarioRepository.CambiarClave(idUsuario, passwordHash);
+        }
+
+
+
+        public Usuario BuscarPorIdUsuario(long idUsuario)
+        {
+            return _usuarioRepository.BuscarPorIdUsuario(idUsuario);
+        }
+
+
     }
 }

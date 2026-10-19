@@ -207,8 +207,7 @@
     cuerpoEmpresas.addEventListener("click", async function (event) {
 
         const botonEditar = event.target.closest(".btn-editar");
-        const botonEliminar = event.target.closest(".btn-eliminar");
-
+       
         // ======================================
         // EDITAR
         // ======================================
@@ -231,40 +230,7 @@
             panelFormularioEmpresa.style.display = "block";
         }
 
-        // ======================================
-        // ELIMINAR
-        // ======================================
-        if (botonEliminar) {
-            const fila = botonEliminar.closest("tr");
-            const idEmpresa = parseInt(fila.cells[0].textContent);
-            const razonSocialEmpresa = fila.cells[2].textContent.trim();
 
-            const confirmar = confirm("¿Desea eliminar la empresa " + razonSocialEmpresa + "?");
-
-            if (confirmar) {
-
-                const respuesta =
-                    await fetch("/Empresa/Eliminar", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify(idEmpresa)
-                    });
-
-                if (!respuesta.ok) {
-
-                    alert("No fue posible eliminar la empresa.");
-                    return;
-                }
-
-
-                fila.remove();
-
-                actualizarCantidadEmpresas();
-                alert("Empresa eliminada correctamente.");
-            }
-        }
 
     });
 
@@ -299,3 +265,50 @@
     }
 
 });
+
+// ==========================================
+// VALIDAR RUT AL SALIR DEL CAMPO
+// ==========================================
+
+document.getElementById("txtRut").addEventListener("blur", function () {
+
+    const rut = this.value.trim();
+
+    if (rut === "") {
+        return;
+    }
+
+    if (!validarRut(rut)) {
+        alert("El RUT ingresado no es válido.");
+        this.value = "";
+    }
+
+});
+
+
+function validarRut(rut) {
+
+    rut = rut.replace(/\./g, "").replace(/-/g, "").toUpperCase();
+
+    if (!/^\d{7,8}[0-9K]$/.test(rut)) {
+        return false;
+    }
+
+    let suma = 0;
+    let multiplicador = 2;
+
+    for (let i = rut.length - 2; i >= 0; i--) {
+
+        suma += parseInt(rut[i]) * multiplicador;
+
+        multiplicador = multiplicador === 7 ? 2 : multiplicador + 1;
+    }
+
+    const resultado = 11 - (suma % 11);
+
+    const digito = resultado === 11 ? "0"
+        : resultado === 10 ? "K"
+            : resultado.toString();
+
+    return digito === rut.slice(-1);
+}

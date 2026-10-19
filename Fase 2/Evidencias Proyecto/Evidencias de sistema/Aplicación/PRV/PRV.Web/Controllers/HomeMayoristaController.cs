@@ -15,8 +15,9 @@ namespace PRV.Web.Controllers
         public IActionResult Index()
         {
             var idEmpresa = HttpContext.Session.GetString("IdEmpresa");
+            var idUsuario = HttpContext.Session.GetString("IdUsuario");
 
-            if (string.IsNullOrEmpty(idEmpresa))
+            if (string.IsNullOrEmpty(idUsuario))
             {
                 return RedirectToAction("Index", "Inicio");
             }
