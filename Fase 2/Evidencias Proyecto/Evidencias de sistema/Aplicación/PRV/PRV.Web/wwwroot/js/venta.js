@@ -37,8 +37,11 @@ document.getElementById("btnLimpiar").addEventListener("click", function () {
 
 function limpiar() {
 
-    document.getElementById("fechaDesde").value = "";
-    document.getElementById("fechaHasta").value = "";
+    const hoy = new Date();
+    const fechaActual = hoy.getFullYear() + "-" + String(hoy.getMonth() + 1).padStart(2, "0") + "-" + String(hoy.getDate()).padStart(2, "0");
+
+    document.getElementById("fechaDesde").value = fechaActual;
+    document.getElementById("fechaHasta").value = fechaActual;
 
     document.getElementById("tablaVentas").innerHTML = "";
 
@@ -130,9 +133,25 @@ function mostrarVentas(data) {
         }
 
 
-        const fecha =
-            new Date(venta.fechaVenta).toLocaleDateString("es-CL");
+        const opciones = {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        };
 
+        const fecha = new Date(venta.fechaVenta)
+            .toLocaleString("es-CL", opciones)
+            .replace(",", " ") + " Hrs.";
+
+        const fechaAnulacion =
+            venta.estado === "Anulada" && venta.fechaAnulacion
+                ? new Date(venta.fechaAnulacion)
+                    .toLocaleString("es-CL", opciones)
+                    .replace(",", " ") + " Hrs."
+                : "";
 
         tabla.innerHTML +=
             `<tr>
@@ -140,6 +159,8 @@ function mostrarVentas(data) {
                 <td>${venta.idVenta}</td>
 
                 <td>${fecha}</td>
+
+                <td>${fechaAnulacion}</td>
 
                 <td>${venta.cliente}</td>
 

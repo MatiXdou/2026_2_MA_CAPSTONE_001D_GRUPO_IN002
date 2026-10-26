@@ -86,7 +86,7 @@ namespace PRV.Web.Controllers
                     "Su solicitud para acceder como cliente mayorista ha sido aprobada.\n\n" +
                     "Ya puede ingresar a PRV utilizando su correo registrado.\n\n" +
                     "Su clave temporal es: " + claveTemporal + "\n\n" +
-                    "Por seguridad, debe cambiar esta clave después de ingresar al sistema.\n\n" +
+                    "Por seguridad, debe cambiar este PIN después de ingresar al sistema.\n\n" +
                     "Saludos,\n" +
                     "PRV - Planificador de Recursos de Ventas"
                 );

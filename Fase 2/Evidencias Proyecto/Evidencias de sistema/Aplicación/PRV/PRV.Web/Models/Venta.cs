@@ -11,5 +11,7 @@
         public string Estado { get; set; } = "";
 
         public string Cliente { get; set; } = "";
+
+        public DateTime? FechaAnulacion { get; set; }
     }
 }
